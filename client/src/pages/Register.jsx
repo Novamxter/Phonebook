@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { userRegister } from "../services/api.mjs";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Register() {
   const [user, setUser] = useState({ username: "", email: "", password: "" });
-  const {saveToken, setIsLogout} = useAuth()
+  const { saveToken, setIsLogout } = useAuth();
 
   const handleData = (e) => {
     setUser({ ...user, [e.target.name]: e.target.value });
@@ -18,8 +18,8 @@ export default function Register() {
     try {
       const res = await userRegister(user);
       localStorage.setItem("user", JSON.stringify(res.data.user));
-      saveToken(res.data.accessToken)
-      setIsLogout(false)
+      saveToken(res.data.accessToken);
+      setIsLogout(false);
       navigate("/home");
     } catch (err) {
       if (err.response && err.response.status === 400) {
@@ -87,7 +87,12 @@ export default function Register() {
           </button>
         </form>
 
-        <p className="mt-2"><a href="/login" className="text-blue-400 underline">Login</a> to manage your saved contacts anytime.</p>
+        <p className="mt-2">
+          <Link to="/login" className="text-blue-400 underline">
+            Login
+          </Link>{" "}
+          to manage your saved contacts anytime.
+        </p>
       </div>
     </>
   );

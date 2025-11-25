@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { userLogin } from "../services/api.mjs";
 import { useAuth } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 export default function Login() {
   const [user, setUser] = useState({ username: "", password: "" });
@@ -76,9 +76,9 @@ export default function Login() {
 
         <p className="mt-2">
           Don’t have an account yet?{" "}
-          <a href="/register" className="text-blue-400 underline">
+          <Link to="/register" className="text-blue-400 underline">
             Register now!
-          </a>
+          </Link>
         </p>
       </div>
     </>
