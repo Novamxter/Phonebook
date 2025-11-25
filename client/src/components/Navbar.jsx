@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation,Link , useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 
 export default function Navbar({ name }) {
@@ -23,8 +23,8 @@ export default function Navbar({ name }) {
           </button>
         ) : (
           <div className="flex gap-1 p-1 bg-white rounded-full items-center">
-            <a
-              href="/login"
+            <Link
+              to="/login"
               className={`px-4 py-2 font-medium rounded-full transition-all duration-300 ease-in-out ${
                 path === "/login"
                   ? "bg-blue-800 text-white"
@@ -32,9 +32,9 @@ export default function Navbar({ name }) {
               }`}
             >
               Login
-            </a>
-            <a
-              href="/register"
+            </Link>
+            <Link
+              to="/register"
               className={`px-4 py-2 font-medium rounded-full transition-all duration-300 ease-in-out ${
                 path === "/register"
                   ? "bg-blue-800 text-white"
@@ -42,7 +42,7 @@ export default function Navbar({ name }) {
               }`}
             >
               Register
-            </a>
+            </Link>
           </div>
         )}
       </nav>
