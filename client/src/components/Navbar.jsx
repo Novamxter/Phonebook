@@ -9,7 +9,6 @@ export default function Navbar({ name }) {
   const location = useLocation();
   const path = location.pathname;
 
-  
   return (
     <>
       <nav className="fixed top-0 h-[60px] w-full bg-blue-800 flex items-center justify-between px-10 ">
