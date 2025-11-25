@@ -10,11 +10,18 @@ import Contact from "./models/ContactSchema.js";
 
 dotenv.config();
 
+const allowedOrigin =
+  process.env.NODE_ENV === "production"
+    ? "https://social-post-app-full-stack.vercel.app"
+    : "http://localhost:5173";
+
 const app = express();
+app.set("trust proxy", 1);
+
 app.use(
   cors({
-    origin: "http://localhost:5173", // 👈 exact origin of your frontend
-    credentials: true, // 👈 allow cookies/auth headers
+    origin: allowedOrigin, // exact origin of your frontend
+    credentials: true, // allow cookies/auth headers
   })
 );
 app.use(express.json());

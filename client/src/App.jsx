@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Register from "./pages/register";
+import Register from "./pages/Register";
 import Login from "./pages/Login";
 import Navbar from "./components/Navbar";
 import AuthProvider from "./context/AuthContext";
