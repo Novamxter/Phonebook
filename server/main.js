@@ -12,7 +12,7 @@ dotenv.config();
 
 const allowedOrigin =
   process.env.NODE_ENV === "production"
-    ? "https://social-post-app-full-stack.vercel.app"
+    ? "https://phonebook-two-eta.vercel.app"
     : "http://localhost:5173";
 
 const app = express();
